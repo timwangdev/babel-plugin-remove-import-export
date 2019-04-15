@@ -1,0 +1,16 @@
+{
+  "name": "babel-plugin-remove-import-export",
+  "version": "1.0.0",
+  "description": "A babel plugin to remove import and export declaration in the source file.",
+  "main": "index.js",
+  "repository": "https://github.com/timwangdev/babel-plugin-remove-import-export.git",
+  "author": "Tim Wang <timwangdev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "jest": "^24.7.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
