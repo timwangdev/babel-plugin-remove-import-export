@@ -2,61 +2,42 @@
 
 A babel plugin to remove import and export declaration in the source file.
 
+This will be useful if you just want to provide a code snippet without the extra module syntex, for example LeetCode.
+
+__Warning:__ This plugin will break the context of the script, use with caution.
+
 ## Example
 
 **In**
 
 ```javascript
-import { Map } from 'some-lib';
+import { LinkedList } from 'some-lib'
 
-var twoSumImpl = function(nums, target) {
-    const hashMap = new Map();
-    for (let idx = 0; idx < nums.length; idx++) {
-        const val = nums[idx];
-        const complement = target - val;
-        if (hashMap.has(complement)) {
-            return [hashMap.get(complement), idx];
-        }
-        hashMap.set(val, idx);
-    };
-    throw new Error('No Solution.');
-};
+function foo(a, b) {
+  return new LinkedList(['bar']);
+}
 
 export class Solution {
-  twoSum(...args) {
-    return twoSumImpl(...args);
+  add(a, b) {
+    return a + b;
   }
-};
+}
 
-export default twoSum;
+export default foo;
 ```
 
 **Out**
 
 ```javascript
-var twoSum = function (nums, target) {
-  const hashMap = new Map();
-
-  for (let idx = 0; idx < nums.length; idx++) {
-    const val = nums[idx];
-    const complement = target - val;
-
-    if (hashMap.has(complement)) {
-      return [hashMap.get(complement), idx];
-    }
-
-    hashMap.set(val, idx);
-  }
-
-  ;
-  throw new Error('No Solution.');
-};
+function foo(a, b) {
+  return new LinkedList(['bar']);
+}
 
 class Solution {
-  twoSum(...args) {
-    return twoSumImpl(...args);
+  add(a, b) {
+    return a + b;
   }
-};
+}
 ```
 
 ## Installation

@@ -1,30 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`works 1`] = `
-"var twoSum = function (nums, target) {
-  const hashMap = new Map();
-
-  for (let idx = 0; idx < nums.length; idx++) {
-    const val = nums[idx];
-    const complement = target - val;
-
-    if (hashMap.has(complement)) {
-      return [hashMap.get(complement), idx];
-    }
-
-    hashMap.set(val, idx);
-  }
-
-  ;
-  throw new Error('No Solution.');
-};
-
-class Solution {
-  twoSum(...args) {
-    return twoSumImpl(...args);
-  }
-
+"function foo(a, b) {
+  return new LinkedList(['bar']);
 }
 
-;"
+class Solution {
+  add(a, b) {
+    return a + b;
+  }
+
+}"
 `;
