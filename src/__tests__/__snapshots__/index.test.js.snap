@@ -1,7 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`works 1`] = `
-"function foo(a, b) {
+exports[`works with no options 1`] = `
+"function foo() {
+  return new LinkedList(['bar']);
+}
+
+class Solution {
+  add(a, b) {
+    return a + b;
+  }
+
+}"
+`;
+
+exports[`works with preseveNamedDeclaration false options 1`] = `
+"function foo() {
+  return new LinkedList(['bar']);
+}"
+`;
+
+exports[`works with removeExport false options 1`] = `
+"function foo() {
+  return new LinkedList(['bar']);
+}
+
+export class Solution {
+  add(a, b) {
+    return a + b;
+  }
+
+}
+export default foo;"
+`;
+
+exports[`works with removeExportDefault false options 1`] = `
+"function foo() {
+  return new LinkedList(['bar']);
+}
+
+class Solution {
+  add(a, b) {
+    return a + b;
+  }
+
+}
+
+export default foo;"
+`;
+
+exports[`works with removeImport false options 1`] = `
+"import { LinkedList } from 'some-lib';
+
+function foo() {
   return new LinkedList(['bar']);
 }
 

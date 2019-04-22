@@ -1,5 +1,8 @@
 # babel-plugin-remove-import-export
 
+[![npm](https://img.shields.io/npm/v/babel-plugin-remove-import-export.svg)](https://www.npmjs.com/package/babel-plugin-remove-import-export)
+[![Downloads](https://img.shields.io/npm/dw/babel-plugin-remove-import-export.svg)](https://www.npmjs.com/package/babel-plugin-remove-import-export)
+
 A babel plugin to remove import and export declaration in the source file.
 
 This will be useful if you just want to provide a code snippet without the extra module syntex, for example LeetCode.
@@ -11,9 +14,9 @@ __Warning:__ This plugin will break the context of the script, use with caution.
 **In**
 
 ```javascript
-import { LinkedList } from 'some-lib'
+import { LinkedList } from 'some-lib';
 
-function foo(a, b) {
+function foo() {
   return new LinkedList(['bar']);
 }
 
@@ -29,7 +32,7 @@ export default foo;
 **Out**
 
 ```javascript
-function foo(a, b) {
+function foo() {
   return new LinkedList(['bar']);
 }
 
@@ -59,8 +62,21 @@ npm install babel-plugin-remove-import-export --save-dev
 **.babelrc**
 
 ```json
+// without options
 {
   "plugins": ["remove-import-export"]
+}
+
+// with options
+{
+  "plugins": [
+    ["remove-import-export", {
+      "removeImport": false,
+      "removeExport": false,
+      "removeExportDefault": false,
+      "preseveNamedDeclaration": false
+    }]
+  ]
 }
 ```
 
@@ -77,3 +93,49 @@ require("@babel/core").transform("code", {
   plugins: ["remove-import-export"]
 });
 ```
+
+## Options
+
+### `removeImport`
+
+`boolean`, defaults to `true`.
+
+### `removeExport`
+
+`boolean`, defaults to `true`.
+
+### `removeExportDefault`
+
+`boolean`, defaults to `true`. Will always remove default export if `removeExport` is `true`.
+
+### `preseveNamedDeclaration`
+
+`boolean`, defaults to `true`.
+
+<p><details>
+  <summary><b>Example</b></summary>
+
+  Set `preseveNamedDeclaration` to `false` will not keep the declaration after `export` keyword.
+
+  **In**
+
+  ```javascript
+  function foo() {
+    return 'bar';
+  }
+
+  export class Solution {
+    add(a, b) {
+      return a + b;
+    }
+  }
+  ```
+
+  **Out**
+
+  ```javascript
+  function foo() {
+    return 'bar';
+  }
+  ```
+</details></p>
