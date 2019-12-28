@@ -106,7 +106,7 @@ require("@babel/core").transform("code", {
 
 ### `removeExportDefault`
 
-`boolean`, defaults to `true`. Will always remove default export if `removeExport` is `true`.
+`boolean`, defaults to `true`. Set this option to `false` will preserve the default export.
 
 ### `preseveNamedDeclaration`
 
