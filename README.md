@@ -5,7 +5,7 @@
 
 A babel plugin to remove import and export declaration in the source file.
 
-This will be useful if you just want to provide a code snippet without the extra module syntex, for example LeetCode.
+This will be useful if you just want to provide a code snippet without the extra module syntex, for example LeetCode. Or test your internal code without export it to the external.
 
 __Warning:__ This plugin will break the context of the script, use with caution.
 
